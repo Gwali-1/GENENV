@@ -31,9 +31,9 @@ genv -n meseeks flask django
 
 
 ### creating a virtual environment with name `meseeks` with dependencies specified in `template.txt` file
-```bash
-create template.txt file in same directory you will run command
-add package names to it 
+> create template.txt file in same directory you will run command
+> add package names to it
+```bash 
 genv -n meseeks f
 ```
 it detects  and reads contents template.txt file
@@ -44,9 +44,9 @@ if temeplate.txt file is available and empty , environemnt is created with no in
 ### installing dependecies/packages in already existing virtual environments
 - specify the name option flag as the name of the environment  you want to install package in
 - if you want to install numpy in an existing virtual environment called `pluto`
+>make sure youre in directory that venv is located then run
 ```bash
-make sure youre in directory that venv is located then run 
-
+ 
 genv -n pluto  numpy
 ```
 
