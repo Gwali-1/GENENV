@@ -7,12 +7,12 @@ script ="./createnv.sh"
 # print(test.args)
 @click.command()
 @click.option("--name", "-n", "name", required=True ,help="provide name to be used for your virtual environment")
-@click.argument("dependecies", nargs=-1 )
-def cli(name,dependecies):
+@click.argument("dependencies", nargs=-1 )
+def cli(name,dependencies):
     """
     specify package names after name flag to install them,read documentation for how that works
     """
-    if not dependecies:
+    if not dependencies:
         commands = [script, name]
         try:
              process = subprocess.run(commands)
@@ -21,7 +21,7 @@ def cli(name,dependecies):
         except Exception as e:
             click.echo(e)
 
-    commands = list(dependecies)
+    commands = list(dependencies)
     commands.insert(0,name)
     commands.insert(0,script)
     try:
