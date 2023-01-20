@@ -3,12 +3,13 @@ from setuptools import setup,find_packages
 
 setup(
     name='genenv',
-    version='1.0.0',
+    version='1.0.2',
     description='command line utility tool that allows you to create python virtual environements with already installed dependencies you want easily',
     long_description=open('README-copy.md').read(),
     long_description_content_type='text/markdown',
     packages=find_packages(),
     py_modules=['genenv'],
+    scripts=["createnv.sh"],
     author='Matthew Gwalisam',
     author_email='gwalisam37@email.com',
     url='https://github.com/Gwali-1/GENENV.git',
