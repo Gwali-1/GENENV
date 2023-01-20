@@ -1,5 +1,5 @@
 
-![logo](logo/genenv.png "genenv logo")
+![logo](logo/genenv.png width="200" "genenv logo")
 
 # GENENV
 This  command line utility tool allows you to create python virtual environements with already installed dependencies
