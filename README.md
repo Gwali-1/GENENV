@@ -1,6 +1,6 @@
 
 <!-- ![logo](logo/genenv.png  "genenv logo") -->
-<img src="logo/genenv.png " alt="logo" width="200"/>
+<img src="logo/genenv.png " alt="logo" width="600"/>
 
 # GENENV
 This  command line utility tool allows you to create python virtual environements with already installed dependencies
