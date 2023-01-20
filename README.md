@@ -3,20 +3,20 @@
 <img src="logo/genenv.png " alt="logo" />
 
 # GENENV
-This command line utility tool allows you to create python virtual environements with already installed dependencies
-you want easily!
+This command line utility tool allows you to create python virtual environements with dependencies
+you want already installed easily!
 
 ## Features
-- [x] You can create virtual environments with pre-installed packages that you specify in command line
+- [x] You can create virtual environments with pre-installed packages that you specify on command line
 - [x] Instead of providing package name on command line, you can add a `template.txt` file containing
-names of packages you want intalled 
+names of packages you want intalled.
 - [x] Install packages in already existing virtual environments without having to activate them
-- [x] you can create virtual environments with no packages installed.
+- [x] You can create virtual environments with no packages installed.
 
 
 ## How it works 
 Essentially, the process of virtual environments creation and installation of packages is done in the bash script `.createnv.sh`.
-The bash script is called as a subprocessin the python file.
+The bash script is called as a subprocess in  the python file.
 `Click` is used to provide a CLI interface and collect arguments from the command line to pass into bash script when 
 its being called.
 
@@ -28,7 +28,7 @@ pip install genenv
 ```
 
 ## NOTE:
-1. if you specify package names on command line and template.txt file exits ,template.txt file will be ignored.
+1. if you specify package names on command line and `template.txt` file exits, `template.txt` file will be ignored.
 2. if no template.txt file or package name(s) are provided as on command line as arguments, you'll recieve prompt if you still
 want to proceed to create virtual environment with no preinstalled dependencies.
 3. To use contents of `template.txt` file , do not provide any package names after you specify environment name
