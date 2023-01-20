@@ -3,11 +3,11 @@ This  command line utility tool allows you to create python virtual environement
 you want easily!
 
 ## Features
--[x]you can create virtual environments with pre-installed packages that you specify in command line
--[x] Instead of providing package name on command line , you can add a `template.txt` file containing
+- [x]you can create virtual environments with pre-installed packages that you specify in command line
+- [x] Instead of providing package name on command line , you can add a `template.txt` file containing
 names of packages you want intalled 
--[x] install packages in already existing virtual environments without having to activate them
--[x] you can create virtual environments with no packages installed 
+- [x] install packages in already existing virtual environments without having to activate them
+- [x] you can create virtual environments with no packages installed 
 
 
 ## How it works 
@@ -31,7 +31,7 @@ genv -n meseeks flask django
 
 
 ### creating a virtual environment with name `meseeks` with dependencies specified in `template.txt` file
-> create template.txt file in same directory you will run command
+> create template.txt file in same directory you will run command\n
 > add package names to it
 ```bash 
 genv -n meseeks f
