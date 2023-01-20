@@ -23,7 +23,7 @@ its being called
 pip install genenv
 
 ```
-# NOTE:
+## NOTE:
 1. if you specify package names on command line and template.txt file exits ,  template.txt file will be ignored
 2. if  No template.tx file or package names are provided as on command line as arguments , youll recieve prompt if you still
 want to proceed to create virtual environment with no preinstalled dependencies.
@@ -56,8 +56,6 @@ if temeplate.txt file is available and empty , environemnt is created with no in
  
 genv -n pluto  numpy
 ```
-
-
 
 - run `genenv --help` to bring up help menu
 
