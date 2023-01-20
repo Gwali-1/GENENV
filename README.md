@@ -21,7 +21,14 @@ its being called
 - Install with pip
 ```bash
 pip install genenv
+
 ```
+# NOTE:
+1. if you specify package names on command line and template.txt file exits ,  template.txt file will be ignored
+2. if  No template.tx file or package names are provided as on command line as arguments , youll recieve prompt if you still
+want to proceed to create virtual environment with no preinstalled dependencies.
+
+
 
 ### Creating a virtual environment with name `meseeks` with django and flask installed 
 - specifying dependecies on command line
@@ -49,14 +56,6 @@ if temeplate.txt file is available and empty , environemnt is created with no in
  
 genv -n pluto  numpy
 ```
-
-
-# NOTE:
-1. if you specify package names on command line and template.txt file exits ,  template.txt file will be ignored
-2. if  No template.tx file or package names are provided as on command line as arguments , youll recieve prompt if you still
-want to proceed to create virtual environment with no preinstalled dependencies.
-
-
 
 
 
