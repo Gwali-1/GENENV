@@ -9,8 +9,10 @@ script ="./createnv.sh"
 @click.option("--name", "-n", "name", required=True ,help="provide name to be used for your virtual environment")
 @click.argument("dependecies", nargs=-1 )
 def cli(name,dependecies):
+    """
+    specify package names after name flag to install them,read documentation for how that works
+    """
     if not dependecies:
-        print("none provided")
         commands = [script, name]
         try:
              process = subprocess.run(commands)
