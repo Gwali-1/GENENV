@@ -70,3 +70,25 @@ Options:
                    [required]
   --help           Show this message and exit.
 ```
+
+
+## Contributing
+- Fork this repository to your GitHub account.
+- Clone the forked repository to your local machine.
+- Create a new branch for the feature you want to work on.
+- Make your contributions.
+- Push your local branch to your remote repository.
+- Open a pull request to the develop branch of this repository.
+
+
+### Setting up the tool for local development
+
+- Clone this repository to your local machine.
+- Create a virtual environment for your project and activate it. Install all dependencies from  requirements.txt file.
+
+- In the root directory of the project, develop the project locally from the setup configuration.
+
+```bash
+python3 setup.py develop
+```
+- you can now run commands 
