@@ -4,7 +4,7 @@
 echo "-----------------------------------"
 
 WORKDIR=$(pwd)
-ENV_NAME=random # argument
+ENV_NAME=$1 # argument
 ARGUMENTS=${@:2}
 RED=$(tput setaf 1)
 GREEN=$(tput setaf 2 ) 
@@ -22,10 +22,10 @@ TEMPLATE_FILE="template.txt"
 check_for_dependency_arguements(){
 if [ !  -z "$ARGUMENTS" ] #if args passed
 then
-    if [ -d $ENV_NAME ] #dir named venv name exist
+    if [ -d $ENV_NAME ] #presence of folder with venv name
     then
         cd $ENV_NAME
-        if [ -d "bin" ] # check if its a venv
+        if [ -d "bin" ] #folder is venv
         then
             echo "${BOLD}${YELLOW}Virtual environment with name ${GREEN}($ENV_NAME)${RESET} ${YELLOW}already exit in location${RESET}"
             source bin/activate
@@ -45,17 +45,31 @@ then
             exit 0
         fi
                   
-    else
+    else  #no presence of venv folder
         echo "${BLUE}Creating your environment${RESET}"
         python3 -m venv $ENV_NAME
         source $ENV_NAME/bin/activate
+
+        ###list depnedencies to be installed
+        echo "${BOLD}${GREEN}[+]Dependencies that will be installed into virtual environment"
+        for package in $ARGUMENTS
+        do
+            echo "${BLUE} $package ${RESET}"
+        done
+
+
         echo "${BOLD}${GREEN}[/] Trying to update pip ${RESET}"
         pip install --upgrade pip
         if [ ! $? -ne 0 ]
         then
+             echo "${BOLD}${GREEN}[/] Installing dependencies ${RESET}"
             for arg in $ARGUMENTS
             do
                 pip install $arg
+                if [ $? -ne 0]
+                then
+                    continue
+                fi
             done
 
             pip freeze >>  requirements.txt
@@ -64,7 +78,7 @@ then
             exit 0
         else
             echo "${BOLD}${YELLOW}Problem creating virtual enviroment${RESET}"
-            exit 1
+            exit 22
         fi
     fi
           
@@ -106,7 +120,6 @@ setupvenv(){
         source $ENV_NAME/bin/activate
         echo "${BOLD}${GREEN}[/] Trying to update pip ${RESET}"
         pip install --upgrade pip
-
         if [ ! $? -ne 0 ] 
         then
             echo "${BOLD}${GREEN}[/] Done! Virtual environemnt created!${RESET} in $WORKDIR "
@@ -118,7 +131,7 @@ setupvenv(){
             exit 0
         else
             echo "Problem creating virtual enviroment"
-            exit 1
+            exit 22
         fi
     else
         echo "${GREEN}Creating your environment${RESET}"
@@ -128,8 +141,16 @@ setupvenv(){
         python3 -m pip install --upgrade pip
 
         echo "${BOLD}${GREEN}[/] downloading and installing dependencies...${RESET}"
-        pip install -r $TEMPLATE_FILE
 
+        while read line  #reading and install every line in template file
+        do
+            pip install $line
+            if [ $? -ne 0]
+            then
+                continue
+            fi
+        done < $TEMPLATE_FILE
+        # pip install -r $TEMPLATE_FILE
         pip freeze >>  requirements.txt
 
         echo "${BOLD}${GREEN}[/] Done! Virtual environemnt created${RESET} in $WORKDIR "
@@ -171,7 +192,7 @@ then
 
 else
     echo "${BOLD}${YELLOW}You did not provide a template file nor dependencies as arguments"
-    echo "${YELLOW}[>]${RESET}${BOLD}${RED}No packages will be installed in virtual environment}${RESET}"
+    echo "${RED}${BOLD}[>]No packages will be installed in virtual environment${RESET}"
     read -p  "${YELLOW}[>]${RESET}${YELLOW}${BOLD}Do you wish to continue(y/n)?: ${RESET}" ANS
     
     case $ANS in 
