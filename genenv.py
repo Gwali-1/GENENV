@@ -7,16 +7,14 @@ script ="./createnv.sh"
 # print(test.args)
 @click.command()
 @click.option("--name", "-n", "name", required=True ,help="provide name to be used for your virtual environment")
-@click.argument("dependecies", nargs=-1)
-def genenv(name,dependecies):
+@click.argument("dependecies", nargs=-1 )
+def cli(name,dependecies):
     if not dependecies:
         print("none provided")
         commands = [script, name]
         try:
              process = subprocess.run(commands)
              if process.returncode == 0:
-                print("success")
-                print(process.stderr)
                 exit(0)
         except Exception as e:
             click.echo(e)
@@ -28,10 +26,5 @@ def genenv(name,dependecies):
         process = subprocess.run(commands)
     except Exception as e:
         click.echo(e)
-    # print(*dependecies)
     
 
-
-
-if __name__ == "__main__":
-    genenv()
