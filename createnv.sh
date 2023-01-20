@@ -20,12 +20,12 @@ TEMPLATE_FILE="template.txt"
 
 
 check_for_dependency_arguements(){
-if [ !  -z "$ARGUMENTS" ]
+if [ !  -z "$ARGUMENTS" ] #if args passed
 then
-    if [ -d $ENV_NAME ]
+    if [ -d $ENV_NAME ] #dir named venv name exist
     then
         cd $ENV_NAME
-        if [ -d "bin" ]
+        if [ -d "bin" ] # check if its a venv
         then
             echo "${BOLD}${YELLOW}Virtual environment with name ${GREEN}($ENV_NAME)${RESET} ${YELLOW}already exit in location${RESET}"
             source bin/activate
@@ -35,6 +35,7 @@ then
                 pip install $arg
             done
             cd ..
+            pip freeze >>  requirements.txt
             echo "${BOLD}${GREEN}[/] Done! Virtual environemnt created${RESET} in $WORKDIR "
             echo "Run ${BLUE}source $ENV_NAME/bin/activate${RESET} to activate "
             exit 0
@@ -57,6 +58,7 @@ then
                 pip install $arg
             done
 
+            pip freeze >>  requirements.txt
             echo "${BOLD}${GREEN}[/] Done! Virtual environemnt created!${RESET} in $WORKDIR "
             echo "Run ${BLUE}source $ENV_NAME/bin/activate${RESET} to activate "
             exit 0
@@ -78,7 +80,7 @@ check_if_env_exit(){
 if [ -d $ENV_NAME ]
 then
     cd $ENV_NAME
-    if [ -d "bin" ]
+    if [ -d "bin" ] #check if a venv
     then
         echo "${BOLD}${YELLOW}Virtual environment with name ${GREEN}($ENV_NAME)${RESET} ${YELLOW}already exit in location${RESET}"
         echo "Run ${BLUE}source $ENV_NAME/bin/activate${RESET} to activate "
@@ -105,7 +107,7 @@ setupvenv(){
         echo "${BOLD}${GREEN}[/] Trying to update pip ${RESET}"
         pip install --upgrade pip
 
-        if [ ! $? -ne 0 ]
+        if [ ! $? -ne 0 ] 
         then
             echo "${BOLD}${GREEN}[/] Done! Virtual environemnt created!${RESET} in $WORKDIR "
             echo "${BOLD}${GREEN}[/] No dependencies where installed"
@@ -148,7 +150,7 @@ check_template_file_presence(){
 if [ -f "$TEMPLATE_FILE" ]
 then
     echo "${BOLD}${GREEN}[/]template file recognized...${RESET}"
-    if [ ! -s "$(pwd)/$TEMPLATE_FILE" ]
+    if [ ! -s "$(pwd)/$TEMPLATE_FILE" ] #if  template file is empty
     then
         echo "${YELLOW}[>]template file is empty${RESET}"
         echo "${YELLOW}[>]No packages will be installed in virtual environment ${RESET}"
