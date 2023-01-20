@@ -1,1 +1,3 @@
 click      8.1.3
+click==8.1.3
+genenv==1.0.0
