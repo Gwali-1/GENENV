@@ -3,7 +3,7 @@ This  command line utility tool allows you to create python virtual environement
 you want easily!
 
 ## Features
-- [x]you can create virtual environments with pre-installed packages that you specify in command line
+- [x] you can create virtual environments with pre-installed packages that you specify in command line
 - [x] Instead of providing package name on command line , you can add a `template.txt` file containing
 names of packages you want intalled 
 - [x] install packages in already existing virtual environments without having to activate them
