@@ -1,7 +1,7 @@
 genenv.egg-info
 __pycache__
 random3
-requirements.txt
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
