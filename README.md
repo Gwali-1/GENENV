@@ -14,6 +14,7 @@ names of packages you want intalled.
 - [x] You can create virtual environments with no packages installed.
 
 
+
 ## How it works 
 Essentially, the process of virtual environments creation and installation of packages is done in the bash script `.createnv.sh`.
 The bash script is called as a subprocess in  the python file.
