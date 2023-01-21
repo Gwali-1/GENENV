@@ -30,7 +30,7 @@ pip install genenv
 
 ## NOTE:
 1. if you specify package names on command line and `template.txt` file exits, `template.txt` file will be ignored.
-2. if no template.txt file or package name(s) are provided as on command line as arguments, you'll recieve prompt if you still
+2. if no `template.txt` file or package name(s) are provided  on command line as arguments, you'll recieve prompt if you still
 want to proceed to create virtual environment with no preinstalled dependencies.
 3. To use contents of `template.txt` file , do not provide any package names after you specify environment name
 
