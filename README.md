@@ -40,7 +40,7 @@ want to proceed to create virtual environment with no preinstalled dependencies.
 ### Creating a virtual environment with name `meseeks` with django and flask installed 
 - specifying dependecies on command line
 ```bash
-genv -n meseeks flask django
+genenv -n meseeks flask django
 ```
 
 
@@ -48,7 +48,7 @@ genv -n meseeks flask django
 - create  a file with name  `template.txt` in same directory you will run command
 - Add package names to it
 ```bash 
-genv -n meseeks 
+genenv -n meseeks 
 ```
 It detects and reads contents `template.txt` file
 then installs package names specified inside.
@@ -61,7 +61,7 @@ If `template.txt` file is available and empty, environemnt is created with no in
 >make sure youre in directory that venv is located then run
 ```bash
  
-genv -n pluto  numpy
+genenv -n pluto  numpy
 ```
 
 - run `genenv --help` to bring up help menu
@@ -98,4 +98,4 @@ Options:
 ```bash
 python3 setup.py develop
 ```
-- you can now run commands  using `genv`
+- you can now run commands  using `genenv`
