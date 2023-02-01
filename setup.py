@@ -2,7 +2,7 @@ from setuptools import setup,find_packages
 
 
 setup(
-    
+
     name='genenv',
     version='1.0.2',
     description='command line utility tool that allows you to create python virtual environements with already installed dependencies you want easily',
@@ -16,6 +16,7 @@ setup(
     url='https://github.com/Gwali-1/GENENV.git',
     include_package_data=True,
     license='MIT',
+    
     python_requires='>=3.7',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
